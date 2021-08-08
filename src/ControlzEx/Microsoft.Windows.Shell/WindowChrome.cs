@@ -62,6 +62,21 @@ namespace ControlzEx.Windows.Shell
             dobj.SetValue(IsHitTestVisibleInChromeProperty, BooleanBoxes.Box(hitTestVisible));
         }
 
+#pragma warning disable 618
+        public static readonly DependencyProperty HitTestResultProperty = DependencyProperty.RegisterAttached(
+            "HitTestResult", typeof(HT), typeof(WindowChrome), new FrameworkPropertyMetadata(HT.CLIENT, FrameworkPropertyMetadataOptions.Inherits));
+
+        public static void SetHitTestResult(DependencyObject element, HT value)
+        {
+            element.SetValue(HitTestResultProperty, value);
+        }
+
+        public static HT GetHitTestResult(DependencyObject element)
+        {
+            return (HT)element.GetValue(HitTestResultProperty);
+        }
+#pragma warning restore 618
+
         public static readonly DependencyProperty ResizeGripDirectionProperty = DependencyProperty.RegisterAttached(
             "ResizeGripDirection",
             typeof(ResizeGripDirection),

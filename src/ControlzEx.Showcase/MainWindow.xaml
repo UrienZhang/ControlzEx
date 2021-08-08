@@ -64,10 +64,14 @@
                             Height="30" />
                     <Button Width="20"
                             Click="MinimizeButton_Click"
+                            controlzEx:WindowChrome.HitTestResult="MINBUTTON"
                             Content="_" />
-                    <Button Click="RestoreOrMaximizeButton_Click" 
+                    <Button Click="RestoreOrMaximizeButton_Click"
+                            controlzEx:WindowChrome.HitTestResult="MAXBUTTON"
+                            MouseEnter="UIElement_OnMouseEnter"
                             Content="[ ]" />
-                    <Button Click="CloseButton_Click" 
+                    <Button Click="CloseButton_Click"
+                            MouseEnter="UIElement_OnMouseEnter"
                             Content="X" />
                 </UniformGrid>
             </Grid>

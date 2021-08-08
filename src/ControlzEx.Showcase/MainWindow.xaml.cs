@@ -233,5 +233,8 @@ namespace ControlzEx.Showcase
         }
 
 #pragma warning restore 618
+        private void UIElement_OnMouseEnter(object sender, MouseEventArgs e)
+        {
+        }
     }
 }

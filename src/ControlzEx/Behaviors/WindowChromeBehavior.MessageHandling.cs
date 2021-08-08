@@ -456,7 +456,14 @@ namespace ControlzEx.Behaviors
                 {
                     if (WindowChrome.GetIsHitTestVisibleInChrome(inputElement))
                     {
-                        return new IntPtr((int)HT.CLIENT);
+                        if (inputElement is DependencyObject dpo)
+                        {
+                            return new IntPtr((int)WindowChrome.GetHitTestResult(dpo));
+                        }
+                        else
+                        {
+                            return new IntPtr((int)HT.CLIENT);
+                        }
                     }
 
                     var direction = WindowChrome.GetResizeGripDirection(inputElement);
@@ -464,6 +471,22 @@ namespace ControlzEx.Behaviors
                     {
                         return new IntPtr((int)this._GetHTFromResizeGripDirection(direction));
                     }
+                }
+            }
+
+            {
+                var inputElement = this.AssociatedObject.InputHitTest(mousePosWindow);
+                if (inputElement is DependencyObject dpo)
+                {
+                    //Console.WriteLine(mousePosWindow);
+                    var result = WindowChrome.GetHitTestResult(dpo);
+
+                    if (result != HT.CLIENT)
+                    {
+                        Console.WriteLine(result);
+                    }
+
+                    return new IntPtr((int)result);
                 }
             }
 

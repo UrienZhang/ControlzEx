@@ -9,7 +9,7 @@
         <ApplicationIcon>..\..\logo.ico</ApplicationIcon>
     </PropertyGroup>
     <PropertyGroup>
-        <OutputType>WinExe</OutputType>
+        <OutputType>Exe</OutputType>
         <NoWarn>SA1652;WPF0041</NoWarn>
         <ApplicationManifest>app.manifest</ApplicationManifest>
     </PropertyGroup>
